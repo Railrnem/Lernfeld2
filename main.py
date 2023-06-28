@@ -28,16 +28,19 @@ def addHardware():
             addLaptop()
 
 
+def main():
+    print("Was für eine Hardware brauchst du?")
+    print("Mögliche Eingaben: Laptop Neu")
 
-print("Was für eine Hardware brauchst du?")
-print("Mögliche Eingaben: Laptop Neu")
+    selection = input()
 
-selection = input()
+    if(isinstance(selection, str)):
+        if(selection == "Laptop"):
+            print(database.printLaptop())
+        if(selection == "Neu"):
+            addHardware()
+    else:
+        print("Ungültige Eingabe")
 
-if(isinstance(selection, str)):
-    if(selection == "Laptop"):
-        print(database.printLaptop())
-    if(selection == "Neu"):
-        addHardware()
-else:
-    print("Ungültige Eingabe")
+if __name__ == "__main__":
+    main()
