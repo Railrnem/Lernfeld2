@@ -33,6 +33,7 @@ def addLaptop(descr : str, display : str,ram : str,storage : str,batteryhours : 
     addHardware(descr)
     db = connectDB()
     cursor = db.cursor()
+    # TODO: need to add foreign Key from Hardware
     cursor.execute('INSERT INTO lernfeld2.laptopeigenschaften (display,ram,storage,batteryhours) VALUES ("' + display + '","' + ram + '","' + storage + '","' + batteryhours + '")')
     db.commit()
     cursor.close()
