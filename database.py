@@ -21,11 +21,19 @@ def printLaptop():
     result = cursor.fetchall()
     return result
 
-def addHardware(descr : str, prop : str, typ : str):
+def addHardware(descr : str):
     db = connectDB()
     cursor = db.cursor()
-    cursor.execute('INSERT INTO lernfeld2.hardware (bezeichnung, eigenschaften, typ) VALUES ("' + descr + '",' + str(prop) + ' ,"' + typ + '")')
+    cursor.execute('INSERT INTO lernfeld2.hardware (bezeichnung) VALUES ("' + descr + '")')
     db.commit()
     cursor.close()
     db.close()
-    
+
+def addLaptop(descr : str, display : str,ram : str,storage : str,batteryhours : str):
+    addHardware(descr)
+    db = connectDB()
+    cursor = db.cursor()
+    cursor.execute('INSERT INTO lernfeld2.laptopeigenschaften (display,ram,storage,batteryhours) VALUES ("' + display + '","' + ram + '","' + storage + '","' + batteryhours + '")')
+    db.commit()
+    cursor.close()
+    db.close()
