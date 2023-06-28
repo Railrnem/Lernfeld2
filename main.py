@@ -26,8 +26,25 @@ def addHardware():
     if(isinstance(selection, str)):
         if selection == "Laptop":
             addLaptop()
+            
+def evalLaptop():
+    print("What is important about the Laptop?")
+    print("Display, RAM, Storage or Batteryhours?")
+    selection = input()
+    
+    if selection.lower == "display":
+        pass
+    elif selection.lower() == "ram":
+        pass
+    elif selection.lower() == "storage":
+        pass
+    elif selection.lower() == "batterhours":
+        pass
+    
+    #print(database.printLaptop())
+    
 
-
+            
 def main():
     print("Was für eine Hardware brauchst du?")
     print("Mögliche Eingaben: Laptop Neu")
@@ -36,7 +53,7 @@ def main():
 
     if(isinstance(selection, str)):
         if(selection == "Laptop"):
-            print(database.printLaptop())
+            evalLaptop()
         if(selection == "Neu"):
             addHardware()
     else:
