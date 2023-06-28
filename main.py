@@ -10,10 +10,18 @@ port=3307
 # Establish db-connection
 db=mysql.connector.connect(host=host, user=user, password=password, database=database, port=port)
 
-cursor = db.cursor()
-cursor.execute("""
-        SELECT bezeichnung FROM lernfeld2.hardware
-        """)
-result = cursor.fetchall()
+print("Was für eine Hardware brauchst du?")
+print("Mögliche Eingaben: Laptop")
 
-print(result)
+selection = input()
+
+if(isinstance(selection, str)):
+    if(selection == "Laptop"):
+        cursor = db.cursor()
+        cursor.execute("""
+            SELECT bezeichnung FROM lernfeld2.hardware
+        """)
+        result = cursor.fetchall()
+        print(result)
+else:
+    print("Ungültige Eingabe")
