@@ -49,11 +49,31 @@ def evalLaptop():
     else:
         print("Invalid Selection")
     
+def evalComputer():
+    print("What is important about the Computer?")
+    print("CPU, GPU, RAM or Storage?")
+    selection = input()
+    
+    if selection.lower() == "cpu":
+        print(database.getComputerHighScore("cpu"))
+        return
+    elif selection.lower() == "gpu":
+        print(database.getComputerHighScore("gpu"))
+        return
+    elif selection.lower() == "ram":
+        print(database.getComputerHighScore("ram"))
+        return
+    elif selection.lower() == "storage":
+        print(database.getComputerHighScore("storage"))
+        return
+    else:
+        print("Invalid Selection")
+    
 
             
 def main():
     print("What kind of hardware do you need?")
-    print("Possible Selections: laptop new")
+    print("Possible Selections: laptop computer new")
 
     print("Selection:", end=" ")
     selection = input()
@@ -62,6 +82,8 @@ def main():
     if(isinstance(selection, str)):
         if(selection.lower() == "laptop"):
             evalLaptop()
+        if(selection.lower() == "computer"):
+            evalComputer()
         if(selection.lower() == "new"):
             addHardware()
     else:
