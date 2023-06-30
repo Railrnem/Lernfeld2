@@ -11,7 +11,7 @@ def test():
     if request.method == 'GET':
         return f"The URL /data is accessed directly. Try going to '/' to submit form"
     if request.method == 'POST':
-        form_data = request.form
+        form_data = request.form['Hardware']
         return render_template('test.html',form_data = form_data)
  
 app.run(host='localhost', port=5000)
