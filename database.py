@@ -44,7 +44,7 @@ def getLaptopHighScore(category: str):
     db = connectDB()
     cursor = db.cursor()
     cursor.execute(' \
-        SELECT H.bezeichnung, H.id, E.id as Eid, S.id, S.'+ category + ' as Sid FROM hardware as H \
+        SELECT H.bezeichnung, E.display, E.ram, E.storage, E.batteryhours FROM hardware as H \
         INNER JOIN laptopeigenschaften as E ON H.id = E.laptopid \
         INNER JOIN laptopscore as S ON S.id = E.id \
         ORDER BY S.'+ category +' DESC \
