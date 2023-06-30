@@ -34,16 +34,20 @@ def evalLaptop():
     print("Display, RAM, Storage or Batteryhours?")
     selection = input()
     
-    if selection.lower == "display":
-        pass
+    if selection.lower() == "display":
+        print(database.getLaptopHighScore("display"))
+        return
     elif selection.lower() == "ram":
-        pass
+        print(database.getLaptopHighScore("ram"))
+        return
     elif selection.lower() == "storage":
-        pass
+        print(database.getLaptopHighScore("storage"))
+        return
     elif selection.lower() == "batterhours":
-        pass
-    
-    #print(database.printLaptop())
+        print(database.getLaptopHighScore("batteryhours"))
+        return
+    else:
+        print("Invalid Selection")
     
 
             
