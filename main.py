@@ -22,7 +22,9 @@ def addLaptop():
 def addHardware():
     print("Please enter what kind of Hardware you want to add.")
     print("Possible Entrys: Laptop")
+    print("Selection:", end=" ")
     selection = input()
+    print()
     if(isinstance(selection, str)):
         if selection == "Laptop":
             addLaptop()
@@ -49,12 +51,14 @@ def main():
     print("What kind of hardware do you need?")
     print("Possible Selections: laptop new")
 
+    print("Selection:", end=" ")
     selection = input()
+    print()
 
     if(isinstance(selection, str)):
         if(selection.lower() == "laptop"):
             evalLaptop()
-        if(selection.lower() == "New"):
+        if(selection.lower() == "new"):
             addHardware()
     else:
         print("Invalid Selection")
