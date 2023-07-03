@@ -1,10 +1,13 @@
 import database
 
+# print the results from an given list
 def printResult(result):
     print("The following devices have been found that match best your requirements:")
     for field in result:
         print(field)
             
+
+# get user input to get the best matching laptop
 def evalLaptop():
     print("What is important about the Laptop?")
     print("Display, RAM, Storage or Batteryhours?")
@@ -26,6 +29,8 @@ def evalLaptop():
     else:
         print("Invalid Selection")
     
+
+# get user input to get the best matching computer
 def evalComputer():
     print("What is important about the Computer?")
     print("CPU, GPU, RAM or Storage?")
@@ -56,6 +61,7 @@ def main():
     print("Selection:", end=" ")
     selection = input()
 
+    # The input has to be a string
     if(isinstance(selection, str)):
         if(selection.lower() == "laptop"):
             evalLaptop()
@@ -63,8 +69,6 @@ def main():
             evalComputer()
         else:
             print("Invalid Selection")
-        #if(selection.lower() == "new"):
-        #    addHardware()
     else:
         print("Invalid Selection")
 

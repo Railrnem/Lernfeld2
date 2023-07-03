@@ -11,7 +11,7 @@ port=3306
 def connectDB():
     return mysql.connector.connect(host=host, user=user, password=password, database=database, port=port)
     
-    
+# Returns a list of the best 3 Laptops according to the category given
 def getLaptopHighScore(category: str):
     db = connectDB()
     cursor = db.cursor()
@@ -27,6 +27,7 @@ def getLaptopHighScore(category: str):
     db.close()
     return result
     
+# Returns a list of the best 3 Comnputers according to the category given
 def getComputerHighScore(category: str):
     db = connectDB()
     cursor = db.cursor()
