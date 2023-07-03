@@ -10,26 +10,21 @@ def hello_world():
     return render_template('index.html')
 
 
-# Evaluate the selected option from the Home Page and open appropied next page
+# Open the page to select most important component 
 @app.route("/device", methods = ['POST', 'GET'])
 def device():
     if request.method == 'GET':
         return f"The URL /device is accessed directly. Try going to '/' to submit form"
     if request.method == 'POST':
         form_data = request.form['hardware']
-        if form_data.lower() == 'laptop':
-            return render_template('laptop.html')
-        if form_data.lower() == 'computer':
-            return render_template('computer.html')
-        else:
-            return render_template('index.html')
+        return render_template('device.html', device=form_data)
         
 
 # Get the best device informations and display the list
 @app.route("/list", methods = ['POST', 'GET'])
 def list():
     if request.method == 'GET':
-        return f"The URL /device is accessed directly. Try going to '/' to submit form"
+        return f"The URL /list is accessed directly. Try going to '/' to submit form"
     if request.method == 'POST':
         if "laptoppart" in request.form:
             print("test")
