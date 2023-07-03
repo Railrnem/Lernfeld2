@@ -1,6 +1,12 @@
 <h1 style="font-size:20px; padding-left:20px">Please select what is the most important part for you</h1>
 
 <form action="/listcomputer" method = "POST">
-    <p><input type = "text" name = "part" /></p>
+    <label for="part">Choose a component:</label>
+    <select name="part">
+        <option value="cpu">CPU</option>
+        <option value="gpu">GPU</option>
+        <option value="ram">RAM</option>
+        <option value="storage">Storage</option>
+    </select> <br><br>
     <p><input type = "submit" value = "submit" /></p>
 </form>
