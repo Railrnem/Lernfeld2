@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template("index.html")
+    return render_template('index.html')
 
 @app.route("/device", methods = ['POST', 'GET'])
 def device():
@@ -17,7 +17,7 @@ def device():
         if form_data.lower() == 'laptop':
             return render_template('laptop.html')
         else:
-            return render_template("index.html")
+            return render_template('index.html')
         
 @app.route("/listlaptop", methods = ['POST', 'GET'])
 def listlaptop():
