@@ -1,21 +1,27 @@
 import database
+
+def printResult(result):
+    print("The following devices have been found that match best your requirements:")
+    for field in result:
+        print(field)
             
 def evalLaptop():
     print("What is important about the Laptop?")
     print("Display, RAM, Storage or Batteryhours?")
+    print("Selection:", end=" ")
     selection = input()
     
     if selection.lower() == "display":
-        print(database.getLaptopHighScore("display"))
+        printResult(database.getLaptopHighScore("display"))
         return
     elif selection.lower() == "ram":
-        print(database.getLaptopHighScore("ram"))
+        printResult(database.getLaptopHighScore("ram"))
         return
     elif selection.lower() == "storage":
-        print(database.getLaptopHighScore("storage"))
+        printResult(database.getLaptopHighScore("storage"))
         return
     elif selection.lower() == "batterhours":
-        print(database.getLaptopHighScore("batteryhours"))
+        printResult(database.getLaptopHighScore("batteryhours"))
         return
     else:
         print("Invalid Selection")
@@ -23,22 +29,23 @@ def evalLaptop():
 def evalComputer():
     print("What is important about the Computer?")
     print("CPU, GPU, RAM or Storage?")
+    print("Selection:", end=" ")
     selection = input()
     
     if selection.lower() == "cpu":
-        print(database.getComputerHighScore("cpu"))
+        printResult(database.getComputerHighScore("cpu"))
         return
     elif selection.lower() == "gpu":
-        print(database.getComputerHighScore("gpu"))
+        printResult(database.getComputerHighScore("gpu"))
         return
     elif selection.lower() == "ram":
-        print(database.getComputerHighScore("ram"))
+        printResult(database.getComputerHighScore("ram"))
         return
     elif selection.lower() == "storage":
-        print(database.getComputerHighScore("storage"))
+        printResult(database.getComputerHighScore("storage"))
         return
     else:
-        print("Invalid Selection")
+        printResult("Invalid Selection")
     
 
             
