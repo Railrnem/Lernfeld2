@@ -5,10 +5,10 @@
 <ul>
     {% for field in result: %}
     <p> <b> Name:</b> {{field[0]}} <br>
-        <b> CPU:</b> {{field[1]}} 
-        <b> GPU:</b> {{field[2]}} 
-        <b> RAM (in GB):</b> {{field[3]}} 
-        <b> Storage (in MB):</b> {{field[4]}} <br>
+        <b> {{categorys[0]}}:</b> {{field[1]}} 
+        <b> {{categorys[1]}}:</b> {{field[2]}} 
+        <b> {{categorys[2]}}:</b> {{field[3]}} 
+        <b> {{categorys[3]}}:</b> {{field[4]}} <br>
     {% endfor %} 
   </ul>
   </ul>
