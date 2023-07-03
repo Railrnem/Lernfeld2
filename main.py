@@ -73,19 +73,20 @@ def evalComputer():
             
 def main():
     print("What kind of hardware do you need?")
-    print("Possible Selections: laptop computer new")
+    print("Possible Selections: laptop computer")
 
     print("Selection:", end=" ")
     selection = input()
-    print()
 
     if(isinstance(selection, str)):
         if(selection.lower() == "laptop"):
             evalLaptop()
-        if(selection.lower() == "computer"):
+        elif(selection.lower() == "computer"):
             evalComputer()
-        if(selection.lower() == "new"):
-            addHardware()
+        else:
+            print("Invalid Selection")
+        #if(selection.lower() == "new"):
+        #    addHardware()
     else:
         print("Invalid Selection")
 
