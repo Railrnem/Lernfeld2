@@ -23,6 +23,8 @@ def getLaptopHighScore(category: str):
         LIMIT 3; \
     ')
     result = cursor.fetchall()
+    cursor.close()
+    db.close()
     return result
     
 def getComputerHighScore(category: str):
@@ -36,4 +38,6 @@ def getComputerHighScore(category: str):
         LIMIT 3; \
     ')
     result = cursor.fetchall()
+    cursor.close()
+    db.close()
     return result
