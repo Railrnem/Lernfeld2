@@ -5,7 +5,7 @@ host="localhost"
 user="root"
 password="1998"
 database="lernfeld2"
-port=3306
+port=3307
 
 # Establish db-connection
 def connectDB():
