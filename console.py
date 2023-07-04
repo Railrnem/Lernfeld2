@@ -14,17 +14,20 @@ def evalLaptop():
     print("Selection:", end=" ")
     selection = input()
     
+    db = database.Database()
+    db.getLaptopHighScore("display")
+    
     if selection.lower() == "display":
-        printResult(database.getLaptopHighScore("display"))
+        printResult(db.getLaptopHighScore("display"))
         return
     elif selection.lower() == "ram":
-        printResult(database.getLaptopHighScore("ram"))
+        printResult(db.getLaptopHighScore("ram"))
         return
     elif selection.lower() == "storage":
-        printResult(database.getLaptopHighScore("storage"))
+        printResult(db.getLaptopHighScore("storage"))
         return
     elif selection.lower() == "batterhours":
-        printResult(database.getLaptopHighScore("batteryhours"))
+        printResult(db.getLaptopHighScore("batteryhours"))
         return
     else:
         print("Invalid Selection")
@@ -37,17 +40,19 @@ def evalComputer():
     print("Selection:", end=" ")
     selection = input()
     
+    db = database.Database()
+    
     if selection.lower() == "cpu":
-        printResult(database.getComputerHighScore("cpu"))
+        printResult(db.getComputerHighScore("cpu"))
         return
     elif selection.lower() == "gpu":
-        printResult(database.getComputerHighScore("gpu"))
+        printResult(db.getComputerHighScore("gpu"))
         return
     elif selection.lower() == "ram":
-        printResult(database.getComputerHighScore("ram"))
+        printResult(db.getComputerHighScore("ram"))
         return
     elif selection.lower() == "storage":
-        printResult(database.getComputerHighScore("storage"))
+        printResult(db.getComputerHighScore("storage"))
         return
     else:
         printResult("Invalid Selection")

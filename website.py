@@ -26,16 +26,17 @@ def list():
     if request.method == 'GET':
         return f"The URL /list is accessed directly. Try going to '/' to submit form"
     if request.method == 'POST':
+        db = database.Database()
         if "laptoppart" in request.form:
             print("test")
             laptop_data = request.form['laptoppart']
             categorys = ["Display","Ram (in GB)","Storage (in MB)","Batteryhours"]
-            result = database.getLaptopHighScore(laptop_data.lower())
+            result = db.getLaptopHighScore(laptop_data.lower())
             return render_template('list.html', result = result, categorys = categorys)
         elif "computerpart" in request.form:
             computer_data = request.form['computerpart']
             categorys = ["CPU","GPU","RAM (in GB)","Storage (in MB)"]
-            result = database.getComputerHighScore(computer_data.lower())
+            result = db.getComputerHighScore(computer_data.lower())
             return render_template('list.html', result = result, categorys = categorys)
         else:
             print("Failed to print list")
