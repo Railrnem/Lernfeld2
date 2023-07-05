@@ -1,81 +1,70 @@
 import database
 
-# print the results from an given list
-def printResult(result):
-    print("The following devices have been found that match best your requirements:")
-    for field in result:
-        print(field)
-            
+class HardwareEvaluator:
+    # Initialize neccessary Database Objects
+    def __init__(self):
+        self.db = database.Database()
 
-# get user input to get the best matching laptop
-def evalLaptop():
-    print("What is important about the Laptop?")
-    print("Display, RAM, Storage or Batteryhours?")
-    print("Selection:", end=" ")
-    selection = input()
-    
-    db = database.Database()
-    db.getLaptopHighScore("display")
-    
-    if selection.lower() == "display":
-        printResult(db.getLaptopHighScore("display"))
-        return
-    elif selection.lower() == "ram":
-        printResult(db.getLaptopHighScore("ram"))
-        return
-    elif selection.lower() == "storage":
-        printResult(db.getLaptopHighScore("storage"))
-        return
-    elif selection.lower() == "batterhours":
-        printResult(db.getLaptopHighScore("batteryhours"))
-        return
-    else:
-        print("Invalid Selection")
-    
+    # Print Results
+    def printResult(self, result):
+        print("The following devices have been found that match best your requirements:")
+        for field in result:
+            print(field)
 
-# get user input to get the best matching computer
-def evalComputer():
-    print("What is important about the Computer?")
-    print("CPU, GPU, RAM or Storage?")
-    print("Selection:", end=" ")
-    selection = input()
-    
-    db = database.Database()
-    
-    if selection.lower() == "cpu":
-        printResult(db.getComputerHighScore("cpu"))
-        return
-    elif selection.lower() == "gpu":
-        printResult(db.getComputerHighScore("gpu"))
-        return
-    elif selection.lower() == "ram":
-        printResult(db.getComputerHighScore("ram"))
-        return
-    elif selection.lower() == "storage":
-        printResult(db.getComputerHighScore("storage"))
-        return
-    else:
-        printResult("Invalid Selection")
-    
+    # Find the best laptop for the user
+    def evalLaptop(self):
+        print("What is important about the Laptop?")
+        print("Display, RAM, Storage or Batteryhours?")
+        print("Selection:", end=" ")
+        selection = input()
 
-            
-def main():
-    print("What kind of hardware do you need?")
-    print("Possible Selections: laptop computer")
-
-    print("Selection:", end=" ")
-    selection = input()
-
-    # The input has to be a string
-    if(isinstance(selection, str)):
-        if(selection.lower() == "laptop"):
-            evalLaptop()
-        elif(selection.lower() == "computer"):
-            evalComputer()
+        if selection.lower() == "display":
+            self.printResult(self.db.getLaptopHighScore("display"))
+        elif selection.lower() == "ram":
+            self.printResult(self.db.getLaptopHighScore("ram"))
+        elif selection.lower() == "storage":
+            self.printResult(self.db.getLaptopHighScore("storage"))
+        elif selection.lower() == "batteryhours":
+            self.printResult(self.db.getLaptopHighScore("batteryhours"))
         else:
             print("Invalid Selection")
-    else:
-        print("Invalid Selection")
+
+    # Find the best computer for the user
+    def evalComputer(self):
+        print("What is important about the Computer?")
+        print("CPU, GPU, RAM or Storage?")
+        print("Selection:", end=" ")
+        selection = input()
+
+        if selection.lower() == "cpu":
+            self.printResult(self.db.getComputerHighScore("cpu"))
+        elif selection.lower() == "gpu":
+            self.printResult(self.db.getComputerHighScore("gpu"))
+        elif selection.lower() == "ram":
+            self.printResult(self.db.getComputerHighScore("ram"))
+        elif selection.lower() == "storage":
+            self.printResult(self.db.getComputerHighScore("storage"))
+        else:
+            self.printResult("Invalid Selection")
+
+    # Main function of the HardwareEvaluator
+    def main(self):
+        print("What kind of hardware do you need?")
+        print("Possible Selections: laptop computer")
+
+        print("Selection:", end=" ")
+        selection = input()
+
+        if isinstance(selection, str):
+            if selection.lower() == "laptop":
+                self.evalLaptop()
+            elif selection.lower() == "computer":
+                self.evalComputer()
+            else:
+                print("Invalid Selection")
+        else:
+            print("Invalid Selection")
 
 if __name__ == "__main__":
-    main()
+    evaluator = HardwareEvaluator()
+    evaluator.main()
