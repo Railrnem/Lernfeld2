@@ -21,16 +21,19 @@ class WebsiteTests(unittest.TestCase):
         self.assertIsNotNone(result)
         
 class DatabaseTest(unittest.TestCase):
-
+    
+    def setUp(self):
+        self.app = database.Database()
+        
     def test_computerRead(self):
-        result = database.getComputerHighScore('cpu')
+        result = self.app.getComputerHighScore('cpu')
         self.assertNotEqual(result, '')
         
     def test_laptopRead(self):
-        result = database.getLaptopHighScore('display')
+        result = self.app.getLaptopHighScore('display')
         self.assertNotEqual(result, '')
             
     def test_connect(self):
-        result = database.connectDB()
+        result = self.app.connectDB()
         self.assertIsNotNone(result)
 
